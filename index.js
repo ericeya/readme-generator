@@ -49,7 +49,7 @@ const inq = require('inquirer')
 const gM= require('./utils/generateMarkdown.js')
 const fs = require('fs')
 
-console.log(gM.renderLicenseBadge('MIT License'))
+
 
 inq
     .prompt([
@@ -125,55 +125,55 @@ inq
     .then((response) => {
         const licenseBadge = gM.renderLicenseBadge(response.license)
         console.log(licenseBadge)
-//         const readMeContent = `
+        const readMeContent = `
         
-// # Description
+# Description
 
-// ${gM.renderLicenseBadge(response.license)}<br><br>
+${gM.renderLicenseBadge(response.license)}<br><br>
 
-// ${response.description}
+${response.description}
 
-// # Table of Contents
+# Table of Contents
 
-// * [Installation](#installation)
-// * [Usage](#usage)
-// * [License](#license)
-// * [Contributing](#contributing)
-// * [Tests](#tests)
-// * [Questions](#questions)
+* [Installation](#installation)
+* [Usage](#usage)
+* [License](#license)
+* [Contributing](#contributing)
+* [Tests](#tests)
+* [Questions](#questions)
 
-// # Installation
+# Installation
 
-// ${response.installation}
+${response.installation}
 
-// \`\`\`${response.installationLanguage}
-// ${response.installationCodeBlock}
-// \`\`\`
+\`\`\`${response.installationLanguage}
+${response.installationCodeBlock}
+\`\`\`
 
-// # Usage
+# Usage
 
-// ${response.usage}
+${response.usage}
 
-// # License
+# License
 
-// Licensed by ${response.license}
+Licensed by ${response.license}
 
-// # Contributing
+# Contributing
 
-// ${response.contribute}
+${response.contribution}
 
-// # Tests
+# Tests
 
-// ${response.test}
+${response.test}
 
-// # Questions
+# Questions
 
-// Please reach me via github or email if you have any questions, concerns, or remarks 😉<br><br>
-//     - [My Github Link](https://github.com/${response.githubUsername}) <br>
-//     - ${response.email}
+Please reach me via github or email if you have any questions, concerns, or remarks 😉<br><br>
+    - [My Github Link](https://github.com/${response.githubUsername}) <br>
+    - ${response.email}
         
-//         `
-//         fs.writeFile(`./output/${response.title}.md`, readMeContent, (err) => (err) ? console.log(err): console.log("success!") )
+        `
+        fs.writeFile(`./output/${response.title}.md`, readMeContent, (err) => (err) ? console.log(err): console.log("success!") )
 
 
     })
