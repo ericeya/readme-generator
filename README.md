@@ -2,7 +2,7 @@
 
 # Description
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)<br><br>
- This is a readme generator terminal program application.
+ This is a readme generator terminal program application. Made to simplify creating a readme file for your project.
 
 # Table of Contents
 
@@ -15,13 +15,11 @@
 
 # Installation
 
+Node.js is required to run this program as the javascript file is based on node. <br>
+[Click here to go to download and install Node.js](https://nodejs.org/en/download) <br> <br>
 
+Also, please install the following npm package. <br>
 
-Explain how to install the terminal program application.
-
-## Prerequisites
-
-In order to run this app, npm package must be installed. <br>
 - Run the following command at the root of your project
 
     ```javascript
@@ -30,11 +28,11 @@ In order to run this app, npm package must be installed. <br>
 
 # Usage
 
-Enter usage for this application
+This app is used to generate a professional README.md file with preset template. With few questions answered through terminal app, user can create a readme file for their project.
 
 # License
 
-Licensed by __
+Licensed by MIT License.
 
 # Contributing
 
@@ -48,6 +46,7 @@ All you have to do is run the following command and answer the questions prompte
 node index.js
 ```
 
+Demo of the app can be found [here](https://youtu.be/ajWKus_9yYo)
 
 
 
