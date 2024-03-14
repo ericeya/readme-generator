@@ -13,6 +13,8 @@
 
 # Installation
 
+
+
 Explain how to install the terminal program application.
 
 ## Prerequisites
@@ -23,14 +25,6 @@ In order to run this app, npm package must be installed. <br>
     ```javascript
     npm install inquirer@8.2.4
     ```
-
-- Once that is done,  you should be able to run with the following command.<br />
-
-   
-    ```javascript
-    node index.js
-    ```
-
 
 # Usage
 
@@ -46,10 +40,11 @@ Contributions, issues or feature requests are always welcome. Feel free to reach
 
 # Tests
 
-Here is a [link](https://youtube.com) to the video for a demo
+All you have to do is run the following command and answer the questions prompted. There are no additional codes required for execution of the file.
 
-1. Answer all questions prompted by terminal command line
-2. See it work!
+```javascript
+node index.js
+```
 
 
 

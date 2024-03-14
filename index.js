@@ -45,6 +45,137 @@
 //
 // **clicking on table of contents will take the user to corresponding sections** //
 
-const inquirer = require('inquirer')
+const inq = require('inquirer')
+const gM= require('./utils/generateMarkdown.js')
+const fs = require('fs')
+
+console.log(gM.renderLicenseBadge('MIT License'))
+
+inq
+    .prompt([
+        {
+            type: "input" ,
+            message: "What is the title of the project? (This will be the name of your .md file name)" ,
+            name: "title" ,
+        },
+        {
+            type: "input" ,
+            message: "Please describe the project in a few sentences." ,
+            name: "description" ,
+        },
+        {
+            type: "input" ,
+            message: `Please provide instructions for installation. If it requires code block for explanation, please enter it on the next question.` ,
+            name: 'installation' ,
+        },
+        {
+            type: 'input' ,
+            message: 'If you have a code block you would like to put into installation, first confirm the language you are using. If no code block is being used, just press enter.' ,
+            name: 'installationLanguage' ,
+        },
+        {
+            type: 'input' ,
+            message: 'If you entered the language on the question above, please enter the code block. If none, just press enter:' ,
+            name: 'installationCodeBlock' ,
+        },
+        {
+            type: 'input' ,
+            message: 'Please provide a usage for this project' ,
+            name: 'usage' ,
+        },
+        {
+            type: 'input'  ,
+            message: 'Please enter contribution guideline for this project.' ,
+            name: 'contribution' ,
+        },
+        {
+            type: 'input'  ,
+            message: 'Provide test instruction for the project.' ,
+            name: 'test' ,
+        },
+        {
+            type: 'input'  ,
+            message: 'Please provide your github user name: ' ,
+            name: 'githubUsername' ,
+        },
+        {
+            type: 'input'  ,
+            message: 'Please provide your email address: ' ,
+            name:  'email' ,
+        },
+        {
+            type: 'list'  ,
+            message: 'Please select the license used: ' ,
+            name: 'license' ,
+            choices: ['Apache License 2.0', 
+            'GNU General Public License v3.0', 
+            'MIT License',
+            'BSD 2-Clause "Simplified" License', 
+            'BSD 3-Clause "New" or "Revised" License',
+            'Boost Software License 1.0',
+            'Creative Commons Zero v1.0 Universal',
+            'Eclipse Public License 2.0', 
+            'GNU Affero General Public License v3.0', 
+            'GNU General Public License v2.0', 
+            'GNU Lesser General Public License v2.1',
+            'Mozilla Public License 2.0', 
+            'The Unlicense' ]
+        }
+    ])
+    .then((response) => {
+        const licenseBadge = gM.renderLicenseBadge(response.license)
+        console.log(licenseBadge)
+//         const readMeContent = `
+        
+// # Description
+
+// ${gM.renderLicenseBadge(response.license)}<br><br>
+
+// ${response.description}
+
+// # Table of Contents
+
+// * [Installation](#installation)
+// * [Usage](#usage)
+// * [License](#license)
+// * [Contributing](#contributing)
+// * [Tests](#tests)
+// * [Questions](#questions)
+
+// # Installation
+
+// ${response.installation}
+
+// \`\`\`${response.installationLanguage}
+// ${response.installationCodeBlock}
+// \`\`\`
+
+// # Usage
+
+// ${response.usage}
+
+// # License
+
+// Licensed by ${response.license}
+
+// # Contributing
+
+// ${response.contribute}
+
+// # Tests
+
+// ${response.test}
+
+// # Questions
+
+// Please reach me via github or email if you have any questions, concerns, or remarks 😉<br><br>
+//     - [My Github Link](https://github.com/${response.githubUsername}) <br>
+//     - ${response.email}
+        
+//         `
+//         fs.writeFile(`./output/${response.title}.md`, readMeContent, (err) => (err) ? console.log(err): console.log("success!") )
 
 
+    })
+
+  
